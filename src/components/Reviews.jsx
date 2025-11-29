@@ -1,9 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { ASSET } from '../utils/assetBase';
 import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 import { Mountain, Map, Compass, Camera, Backpack, Tent, Footprints, Route } from 'lucide-react';
 import FloatingIcon from './FloatingIcon';
+import manojPrabhu from '../assets/reviews/manoj-prabhu.png';
+import sabyasachiMukherjee from '../assets/reviews/sabyasachi-mukherjee.png';
+import ankurWarikoo from '../assets/reviews/ankur-warikoo.png';
+import atikaTantiya from '../assets/reviews/atika-tantiya.png';
+import darshanShah from '../assets/reviews/darshan-shah.png';
+import sujitDas from '../assets/reviews/sujit-das.png';
 
 const Reviews = () => {
   const reviews = [
@@ -14,7 +19,7 @@ const Reviews = () => {
       location: "Aarhus, Denmark",
       rating: 5,
       text: "IndiaHikes transformed my perspective on trekking. What started as a quest for physical challenges became a journey of self-discovery. The guides' deep knowledge of the terrain and their genuine care for each trekker made every step meaningful. I've trekked in multiple countries, but the combination of India's raw natural beauty and IndiaHikes' professionalism is unmatched. The organization is seamless—from pre-trek logistics to on-ground support. I returned with not just photos, but a renewed appreciation for nature and a stronger body and mind. Highly recommended for anyone seeking authentic mountain experiences.",
-      avatar: `${ASSET}assets/reviews/manoj-prabhu.png`
+      avatar: manojPrabhu
     },
     {
       id: 2,
@@ -23,7 +28,7 @@ const Reviews = () => {
       location: "Kolkata, India",
       rating: 5,
       text: "As an educator, I've always believed in experiential learning. IndiaHikes provided exactly that. The trek was meticulously planned with safety as paramount, yet it challenged us physically and mentally. What impressed me most was the team's adaptability and their genuine passion for conservation. They don't just take you up a mountain; they teach you to respect it. The camaraderie among trekkers—people from different backgrounds coming together—was invaluable. I'm already planning my next trek with them. For anyone seeking a well-organized, professionally managed, and truly enriching trekking experience, IndiaHikes is the answer.",
-      avatar: `${ASSET}assets/reviews/sabyasachi-mukherjee.png`
+      avatar: sabyasachiMukherjee
     },
     {
       id: 3,
@@ -32,7 +37,7 @@ const Reviews = () => {
       location: "India",
       rating: 5,
       text: "IndiaHikes isn't just about reaching a summit—it's about the journey and the people. Every moment was thoughtfully crafted, from the pre-trek communication to the post-trek follow-up. The guides were more like mentors, sharing not just navigation tips but also life lessons from their years in the mountains. What struck me was their commitment to sustainable tourism and community impact. You feel good about your money going to a company that genuinely cares. The physical challenge was real, but so was the mental clarity I gained. If you're on the fence, don't be. This is a life-changing experience.",
-      avatar: `${ASSET}assets/reviews/ankur-warikoo.png`
+      avatar: ankurWarikoo
     },
     {
       id: 4,
@@ -41,7 +46,7 @@ const Reviews = () => {
       location: "Bangalore, India",
       rating: 5,
       text: "Working in tech, I'm usually glued to screens. IndiaHikes gave me what I didn't know I was missing—a real disconnect and reconnect. The trek was challenging but perfectly paced. The guides' knowledge about flora, fauna, and local culture added dimensions I never expected. Safety measures were thorough without being overbearing. The post-trek stories and bonds formed with fellow trekkers lasted well beyond the mountains. IndiaHikes creates an environment where you can truly be yourself, challenge yourself, and inspire yourself. Every rupee spent felt like an investment in my wellbeing. Absolutely phenomenal experience!",
-      avatar: `${ASSET}assets/reviews/atika-tantiya.png`
+      avatar: atikaTantiya
     },
     {
       id: 5,
@@ -50,7 +55,7 @@ const Reviews = () => {
       location: "Hyderabad, India",
       rating: 5,
       text: "In my line of work, efficiency and precision matter. IndiaHikes delivers both, plus so much more. Every detail was handled professionally—permits, accommodation, meals, safety gear—nothing was left to chance. The guides were knowledgeable and encouraging, making even the toughest sections feel achievable. What I appreciated most was their emphasis on leaving no trace and supporting local communities. It's a company that operates with values, not just profit. The trek reignited my love for the outdoors and gave me a break I desperately needed. I've recommended IndiaHikes to all my colleagues, and they've all had similarly incredible experiences.",
-      avatar: `${ASSET}assets/reviews/darshan-shah.png`
+      avatar: darshanShah
     },
     {
       id: 6,
@@ -59,7 +64,7 @@ const Reviews = () => {
       location: "Bangalore, India",
       rating: 5,
       text: "Coming from a creative background, I appreciate attention to detail and authentic storytelling. IndiaHikes excels at both. The trek wasn't just physical; it was a narrative journey through India's diverse landscapes and cultures. The guides shared stories that brought history and geography to life. The group dynamics fostered by the team created a sense of community and shared purpose. Every sunrise, every challenge overcome, every laugh shared made me realize the value of human connection. The photos I took tell a story, but the memories will last forever. If you want to experience India in its truest form with people who genuinely care, IndiaHikes is your answer. This experience has permanently changed how I see adventure and exploration.",
-      avatar: `${ASSET}assets/reviews/sujit-das.png`
+      avatar: sujitDas
     }
     // Add as many as needed
   ];

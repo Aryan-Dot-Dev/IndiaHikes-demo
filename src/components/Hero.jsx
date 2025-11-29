@@ -1,53 +1,61 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Mountain, MapPin, Zap } from "lucide-react";
 import Searchbar from "./Searchbar"
-import { ASSET } from '../utils/assetBase'
+import heroImg1 from '../assets/hero-images/hero_img_1.png'
+import heroBuran from '../assets/hero-images/buran_ghati.png'
+import heroHappy from '../assets/hero-images/happy_trekker.png'
+import heroJothiran from '../assets/hero-images/jothiran.png'
+import heroMiyar from '../assets/hero-images/miyar_valley.png'
+import heroStay from '../assets/hero-images/stay.png'
+import chevronPrev from '../assets/chevron-left.svg'
+import chevronNext from '../assets/chevron-right.svg'
+
+const heroSlides = [
+  {
+    src: heroImg1,
+    position: "center",
+    mobilePosition: "center",
+    title: "Conquer Mountain Peaks",
+    tagline: "Experience breathtaking summits and pristine alpine meadows"
+  },
+  {
+    src: heroBuran,
+    position: "bottom center",
+    mobilePosition: "bottom",
+    title: "Trek the High Passes",
+    tagline: "Navigate stunning mountain passes with expert guidance"
+  },
+  {
+    src: heroHappy,
+    position: "center bottom",
+    mobilePosition: "center",
+    title: "Join Fellow Adventurers",
+    tagline: "Connect with passionate trekkers from across the globe"
+  },
+  {
+    src: heroJothiran,
+    position: "right",
+    mobilePosition: "right center",
+    title: "Discover Hidden Gems",
+    tagline: "Explore lesser-known trails that showcase true beauty"
+  },
+  {
+    src: heroMiyar,
+    position: "right center",
+    mobilePosition: "center bottom",
+    title: "Walk Through Paradise",
+    tagline: "Traverse lush valleys and pristine natural landscapes"
+  },
+  {
+    src: heroStay,
+    position: "bottom center",
+    mobilePosition: "center",
+    title: "Rest Under the Stars",
+    tagline: "Experience comfortable camping in nature's embrace"
+  },
+];
 
 const Hero = () => {
-  const images = [
-    {
-      src: `${ASSET}assets/hero-images/hero_img_1.png`,
-      position: "center",
-      mobilePosition: "center",
-      title: "Conquer Mountain Peaks",
-      tagline: "Experience breathtaking summits and pristine alpine meadows"
-    },
-    {
-      src: `${ASSET}assets/hero-images/buran_ghati.png`,
-      position: "bottom center",
-      mobilePosition: "bottom",
-      title: "Trek the High Passes",
-      tagline: "Navigate stunning mountain passes with expert guidance"
-    },
-    {
-      src: `${ASSET}assets/hero-images/happy_trekker.png`,
-      position: "center bottom",
-      mobilePosition: "center",
-      title: "Join Fellow Adventurers",
-      tagline: "Connect with passionate trekkers from across the globe"
-    },
-    {
-      src: `${ASSET}assets/hero-images/jothiran.png`,
-      position: "right",
-      mobilePosition: "right center",
-      title: "Discover Hidden Gems",
-      tagline: "Explore lesser-known trails that showcase true beauty"
-    },
-    {
-      src: `${ASSET}assets/hero-images/miyar_valley.png`,
-      position: "right center",
-      mobilePosition: "center bottom",
-      title: "Walk Through Paradise",
-      tagline: "Traverse lush valleys and pristine natural landscapes"
-    },
-    {
-      src: `${ASSET}assets/hero-images/stay.png`,
-      position: "bottom center",
-      mobilePosition: "center",
-      title: "Rest Under the Stars",
-      tagline: "Experience comfortable camping in nature's embrace"
-    },
-  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -55,7 +63,7 @@ const Hero = () => {
 
   // Preload images for smooth transitions
   useEffect(() => {
-    images.forEach((image) => {
+    heroSlides.forEach((image) => {
       const img = new Image();
       img.src = image.src;
     });
@@ -64,16 +72,16 @@ const Hero = () => {
   const handlePrev = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
     setTimeout(() => setIsTransitioning(false), 800);
   };
 
   const handleNext = useCallback(() => {
     if (isTransitioning) return;
     setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
     setTimeout(() => setIsTransitioning(false), 800);
-  }, [isTransitioning, images.length]);
+  }, [isTransitioning]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -81,7 +89,7 @@ const Hero = () => {
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [images.length, handleNext]);
+  }, [handleNext]);
 
   return (
     <>
@@ -89,7 +97,7 @@ const Hero = () => {
       <div className="px-4 sm:px-6 lg:px-8">
         <div ref={containerRef} className='hidden md:block relative w-full h-[calc(100vh-88px)] max-h-[calc(100vh-88px)] max-w-full mx-0 my-0 overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/30'>
         {/* Layered background images for smooth transitions */}
-        {images.map((image, index) => (
+        {heroSlides.map((image, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-800 ease-in-out hero-background bg-cover ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
@@ -112,7 +120,7 @@ const Hero = () => {
               <span className="block">Experience trekking with the</span>
               <span className="block bg-linear-to-r from-[#EFB71A] to-[#0CE88C] bg-clip-text text-transparent">Organization That Sets the Standard</span>
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white/80 tracking-[0.1em] uppercase">
+            <p className="text-sm sm:text-base md:text-lg text-white/80 tracking-widest uppercase">
               Trail tested, summit ready, leave no trace—every trek built for growth.
             </p>
           </div>
@@ -128,7 +136,7 @@ const Hero = () => {
               className="absolute left-6 group cursor-pointer hover:scale-110 transition-transform duration-300 p-2 sm:p-3 rounded-full hover:bg-white/10 backdrop-blur-sm shrink-0"
               aria-label="Previous image"
             >
-              <img src={`${ASSET}assets/chevron-left.svg`} alt="previous" className="w-8 sm:w-12 drop-shadow-lg" />
+                    <img src={chevronPrev} alt="previous" className="w-8 sm:w-12 drop-shadow-lg" />
             </button>
 
             <div className="w-full max-w-2xl lg:max-w-4xl">
@@ -141,14 +149,14 @@ const Hero = () => {
               className="absolute right-6 group cursor-pointer hover:scale-110 transition-transform duration-300 p-2 sm:p-3 rounded-full hover:bg-white/10 backdrop-blur-sm shrink-0"
               aria-label="Next image"
             >
-              <img src={`${ASSET}assets/chevron-right.svg`} alt="next" className="w-8 sm:w-12 drop-shadow-lg" />
+                    <img src={chevronNext} alt="next" className="w-8 sm:w-12 drop-shadow-lg" />
             </button>
           </div>
         </div>
 
         {/* Pagination indicators at bottom */}
         <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-          {images.map((_, idx) => (
+          {heroSlides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => {
@@ -180,7 +188,7 @@ const Hero = () => {
 
             {/* Featured Image Carousel - Full height, bottom positioned */}
             <div className='absolute inset-0'>
-              {images.map((image, index) => (
+              {heroSlides.map((image, index) => (
                 <div
                   key={index}
                   className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
@@ -207,10 +215,10 @@ const Hero = () => {
               <div className='space-y-4'>
                 <div>
                   <h1 className='font-elms font-black text-white text-4xl leading-tight mb-2 transition-all duration-500'>
-                    {images[currentIndex].title}
+                    {heroSlides[currentIndex].title}
                   </h1>
                   <p className='font-elms text-gray-300 text-sm leading-relaxed transition-all duration-500'>
-                    {images[currentIndex].tagline}
+                    {heroSlides[currentIndex].tagline}
                   </p>
                 </div>
 
@@ -238,7 +246,7 @@ const Hero = () => {
               <div className='space-y-3'>
                 {/* Dots Indicator */}
                 <div className='flex justify-center items-center gap-1'>
-                  {images.map((_, idx) => (
+                  {heroSlides.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => {

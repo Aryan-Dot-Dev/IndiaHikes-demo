@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home, ShoppingBag, Briefcase, Sparkles, User } from 'lucide-react';
-import { ASSET } from '../utils/assetBase';
+import logoWhite from '../assets/logo-white-bg.svg';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
       <header className="hidden md:block sticky top-0 z-50 bg-[#0b1520]/95 backdrop-blur-md border-b border-gray-700/30">
         <div className="h-14 sm:h-16 lg:h-20 mx-2 sm:mx-3 my-2 sm:my-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-gray-900/60 to-gray-800/40 text-white flex items-center justify-between px-3 sm:px-4 lg:px-6 border border-gray-700/50 shadow-lg">
           <div className='flex items-center gap-2 sm:gap-3'>
-            <img src={`${ASSET}assets/logo-white-bg.svg`} alt="IndiaHikes" className='h-8 sm:h-10 lg:h-14 rounded-md sm:rounded-lg hover:scale-105 transition-transform duration-300' />
+            <img src={logoWhite} alt="IndiaHikes" className='h-8 sm:h-10 lg:h-14 rounded-md sm:rounded-lg hover:scale-105 transition-transform duration-300' />
           </div>
 
           {/* Desktop Navigation */}
