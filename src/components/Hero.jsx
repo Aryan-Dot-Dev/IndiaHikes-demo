@@ -1,46 +1,47 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Mountain, MapPin, Zap } from "lucide-react";
 import Searchbar from "./Searchbar"
+import { ASSET } from '../utils/assetBase'
 
 const Hero = () => {
   const images = [
     {
-      src: "/assets/hero-images/hero_img_1.png",
+      src: `${ASSET}assets/hero-images/hero_img_1.png`,
       position: "center",
       mobilePosition: "center",
       title: "Conquer Mountain Peaks",
       tagline: "Experience breathtaking summits and pristine alpine meadows"
     },
     {
-      src: "/assets/hero-images/buran_ghati.png",
+      src: `${ASSET}assets/hero-images/buran_ghati.png`,
       position: "bottom center",
       mobilePosition: "bottom",
       title: "Trek the High Passes",
       tagline: "Navigate stunning mountain passes with expert guidance"
     },
     {
-      src: "/assets/hero-images/happy_trekker.png",
+      src: `${ASSET}assets/hero-images/happy_trekker.png`,
       position: "center bottom",
       mobilePosition: "center",
       title: "Join Fellow Adventurers",
       tagline: "Connect with passionate trekkers from across the globe"
     },
     {
-      src: "/assets/hero-images/jothiran.png",
+      src: `${ASSET}assets/hero-images/jothiran.png`,
       position: "right",
       mobilePosition: "right center",
       title: "Discover Hidden Gems",
       tagline: "Explore lesser-known trails that showcase true beauty"
     },
     {
-      src: "/assets/hero-images/miyar_valley.png",
+      src: `${ASSET}assets/hero-images/miyar_valley.png`,
       position: "right center",
       mobilePosition: "center bottom",
       title: "Walk Through Paradise",
       tagline: "Traverse lush valleys and pristine natural landscapes"
     },
     {
-      src: "/assets/hero-images/stay.png",
+      src: `${ASSET}assets/hero-images/stay.png`,
       position: "bottom center",
       mobilePosition: "center",
       title: "Rest Under the Stars",
@@ -127,7 +128,7 @@ const Hero = () => {
               className="absolute left-6 group cursor-pointer hover:scale-110 transition-transform duration-300 p-2 sm:p-3 rounded-full hover:bg-white/10 backdrop-blur-sm shrink-0"
               aria-label="Previous image"
             >
-              <img src="/assets/chevron-left.svg" alt="previous" className="w-8 sm:w-12 drop-shadow-lg" />
+              <img src={`${ASSET}assets/chevron-left.svg`} alt="previous" className="w-8 sm:w-12 drop-shadow-lg" />
             </button>
 
             <div className="w-full max-w-2xl lg:max-w-4xl">
@@ -140,7 +141,7 @@ const Hero = () => {
               className="absolute right-6 group cursor-pointer hover:scale-110 transition-transform duration-300 p-2 sm:p-3 rounded-full hover:bg-white/10 backdrop-blur-sm shrink-0"
               aria-label="Next image"
             >
-              <img src="/assets/chevron-right.svg" alt="next" className="w-8 sm:w-12 drop-shadow-lg" />
+              <img src={`${ASSET}assets/chevron-right.svg`} alt="next" className="w-8 sm:w-12 drop-shadow-lg" />
             </button>
           </div>
         </div>

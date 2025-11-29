@@ -1,6 +1,7 @@
 import React from 'react';
 import FloatingIcon from './FloatingIcon';
 import { Mountain, Map, Compass, Navigation, Route, Award, Phone, Users, Camera, Play, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { ASSET } from '../utils/assetBase';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -47,7 +48,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3 sm:mb-4">
             <img
-              src="/assets/imf.png"
+              src={`${ASSET}assets/imf.png`}
               alt="IMF Logo"
               className="h-8 sm:h-12 w-auto filter brightness-110 hover:brightness-125 transition-all duration-300"
             />
